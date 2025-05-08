@@ -1,7 +1,7 @@
 .carousel {
     position: relative;
     width: 100%;
-    max-width: 600px;
+    max-width: 700px;
     margin: auto;
     overflow: hidden;
     text-align: center;
@@ -30,4 +30,21 @@
     padding: 0 15px;
     cursor: pointer;
     border-radius: 5px;
+}
+
+h1 {
+    text-align: center;
+    font-family: "Rubik Mono One", monospace;
+}
+h4 {
+    text-align: center;
+    color: #000000;
+    margin-bottom: .5em;
+    font-family: "Rubik Mono One", monospace;
+    font-weight: 100;
+}
+
+iframe {
+    margin-top: 3em;
+    box-shadow: 7px 7px black;
 }

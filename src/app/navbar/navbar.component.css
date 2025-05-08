@@ -3,7 +3,7 @@ ul {
     height: 50px;
 }
 .nav-link {
-    color: rgb(196, 190, 190) !important; 
+    color: #9c9c9c !important; 
     margin: 5px 65px;
 }
 .nav-link:hover {

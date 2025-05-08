@@ -1,3 +1,14 @@
+<div class="p-4 shadow-4 rounded-3" style="background-color: hsl(0, 0%, 100%);">
+  <h1>Gorilla GYM</h1>
+
+  <hr class="my-3" />
+
+  <h4>
+      Live Your Truth
+  </h4>
+
+</div>
+
 <div class="carousel">
     <img [src]="images[currentIndex]" alt="imagen del carrusel">
     
@@ -6,3 +17,16 @@
       <button (click)="nextImage()">›</button>
     </div>
 </div>
+
+<div style="text-align: center;">
+  <iframe 
+      width="560" 
+      height="315" 
+      [src]="video | domseguro:'https://www.youtube.com/embed/' " 
+      frameborder="0" 
+      allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-inpicture" 
+      allowfullscreen>
+  </iframe>
+</div>
+
+
