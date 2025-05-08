@@ -1,11 +1,17 @@
 import { Component } from '@angular/core';
 import { DomseguroPipe } from '../domseguro.pipe';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
+import {MatDividerModule} from '@angular/material/divider';
+import {MatListModule} from '@angular/material/list';
 
 @Component({
   selector: 'app-home',
-  imports: [DomseguroPipe],
+  imports: [DomseguroPipe, MatProgressSpinnerModule, MatProgressBarModule,
+    MatDividerModule, MatListModule
+  ],
   templateUrl: './home.component.html',
-  styleUrl: './home.component.css'
+  styleUrl: './home.component.scss'
 })
 export class HomeComponent {
   images: string[] = [
