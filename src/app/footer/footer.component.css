@@ -1,0 +1,12 @@
+*{
+    display: block;
+    height: 60px; 
+    background-color: #222;
+    color: white;
+    text-align: center;
+    line-height: 60px; 
+}
+
+p{
+    text-align: center;
+}
