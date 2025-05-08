@@ -9,3 +9,6 @@ ul {
 .nav-link:hover {
     color: white !important; 
 }
+a {
+    font-family: "Titillium Web", sans-serif;
+}
