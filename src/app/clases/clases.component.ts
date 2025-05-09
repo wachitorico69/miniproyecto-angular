@@ -13,6 +13,7 @@ import { FormsModule } from '@angular/forms';
 export class ClasesComponent {
   filtroTexto: string = '';
   claseList: any[] = [];
+  cargado: boolean = false;
 
   constructor(private clasesService: ClasesService) {}
 
@@ -21,9 +22,11 @@ export class ClasesComponent {
       next: (result: any) => {
         console.log('Respuesta de la API:', result);
         this.claseList = result.clases || result;
+        this.cargado = true;
       },
       error: (err) => {
-        console.error('Error cargando productos', err);
+        console.error('Error cargando clases', err);
+        this.cargado = true;
       }
     });
   }
