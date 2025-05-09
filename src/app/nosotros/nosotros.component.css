@@ -3,6 +3,10 @@
 }
 .descripcion {
     font-size: larger;
+    text-align: justify;
+    padding-left: 90px;
+    padding-right: 90px;
+    padding-top: 30px;
 }
 .contenido{
     display: grid;
@@ -15,8 +19,14 @@
     box-shadow: 7px 7px black;
     margin: auto;
 }
-.body{
-    height: 100vh;
+.foto{
+    height: 400px;
+    width: auto;
+    box-shadow: 7px 7px black;
+    margin: auto;
+}
+.cuerpo{
+    height: 100%;
     margin: 0;
     display: grid;
     grid-template-columns: 1fr;
@@ -24,4 +34,5 @@
     text-align: center;
     justify-content: center;
     gap: 10px;
+    overflow: hidden;
 }
