@@ -1,0 +1,25 @@
+* {
+    font-family: "Titillium Web", sans-serif;
+}
+
+.container {
+    margin:auto;
+    width: 50%;
+    padding: 15px;
+    box-shadow: 7px 7px black;
+    border: 2px solid black;
+}
+
+.error {
+    color: red;
+    font-size: smaller;
+}
+
+.seccion1 {
+    display: flex;
+    flex-direction: row;
+}
+.seccion2 {
+    display: flex;
+    flex-direction: row;
+}
