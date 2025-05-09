@@ -1,1 +1,23 @@
-<p>clases works!</p>
+<div id="buscoClase" class="form-inline my-2 my-lg-0">
+    <input class="form-control mr-sm-2" type="text" placeholder="¿Qué estas buscando?" [(ngModel)]="filtroTexto">
+</div>
+
+<div class="container py-5">
+  <div class="row g-4">
+    @for (l of clasesFiltradas(); track l;) {
+      <div class="col-4">
+        <div class="card h-100 book-card">
+          <img [src] = "l.image" class="card-img-top" alt="..."/>
+          <div class="card-body" [ngClass]="l.id % 2 !== 0 ? 'oscuro' : 'claro'">
+            <h6 class="card-title"> {{ l.nombre }} </h6>
+            <p class="card-text"> {{ l.descripcion }} </p>
+          </div>
+        </div>
+      </div>
+    }
+    
+    @if (clasesFiltradas().length === 0) {
+        No se encontraron resultados.
+    }
+  </div>
+</div>
