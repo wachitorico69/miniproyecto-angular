@@ -1,3 +1,9 @@
+* {
+    font-family: "Titillium Web", sans-serif;
+}
+.descripcion {
+    font-size: larger;
+}
 .contenido{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
