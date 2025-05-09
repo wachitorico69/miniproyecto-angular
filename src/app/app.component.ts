@@ -5,11 +5,11 @@ import { HeaderComponent } from "./header/header.component";
 import { FooterComponent } from "./footer/footer.component";
 import { NosotrosComponent } from './nosotros/nosotros.component';
 import { ClasesComponent } from './clases/clases.component';
-import { SessionComponent } from './session/session.component';
+import { SobretiComponent } from './sobreti/sobreti.component';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, NavbarComponent, HeaderComponent, FooterComponent, NosotrosComponent, ClasesComponent, SessionComponent],
+  imports: [RouterOutlet, NavbarComponent, HeaderComponent, FooterComponent, NosotrosComponent, ClasesComponent, SobretiComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

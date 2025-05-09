@@ -1,0 +1,144 @@
+<h2>¿Estás interesado en alguna de nuestras clases?</h2>
+<h5>Si alguna de las clases que tenemos disponibles es de tu agrado, no dudes en aprovechar de ellas y 
+    empieza ya mismo con el trabajo duro!</h5>
+FORMULARIO
+<br><br><br>
+
+<h2>Nos gustaría saber un poco sobre ti...</h2>
+<h5>Puedes llenar el siguiente formulario si quieres recibir un email de un perfil personalizado hecho por algunos de nuestros coachs expertos!</h5>
+
+<div class="container">
+    <form (ngSubmit)="submit()" #form="ngForm">
+        <label for="nombre"><b>Nombre</b></label>
+        <input
+            type="text"
+            #nombre="ngModel"
+            [(ngModel)] = "perfil.nombre"
+            placeholder="Nombre"
+            name="nombre"
+            minlength="5"
+            class="form-control"
+            required/>
+
+        
+            @if (nombre.invalid && (nombre.dirty || nombre.touched)) {
+              @if (nombre.errors?.['minlength']) {
+                <p class="error">Introduce un nombre con mínimo 5 caracteres</p>
+              }
+              @if (nombre.errors?.['required']) {
+                <p class="error">Introduce un nombre</p>
+              }
+            }
+        
+
+        <label for="email"><b>Correo electrónico</b></label>
+        <input
+            type="email"
+            #email="ngModel"
+            [(ngModel)] = "perfil.email"
+            placeholder="Correo electrónico"
+            name="email"
+            class="form-control"
+            pattern="^[a-zA-Z0-9._-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$"
+            required/>
+
+        
+            @if (email.invalid && (email.dirty || email.touched)) {
+              @if (email.errors?.['required']) {
+                <p class="error">Introduce un correo electrónico</p>
+              }
+              @if (email.errors && email.errors?.['pattern']) {
+                <p class="error">Introduce un correo electrónico con formato correcto (ej. arroba y .com)</p>
+              }
+            }
+
+        <div class="seccion1">
+            <label for="edad"><b>Edad</b></label>
+            <input
+            type="number"
+            #edad="ngModel"
+            [(ngModel)] = "perfil.edad"
+            placeholder="Edad"
+            name="edad"
+            min="15"
+            class="form-control"
+            required/>
+
+        
+            @if (edad.invalid && (edad.dirty || edad.touched)) {
+              @if (edad.errors?.['required']) {
+                <p class="error">Introduce un edad</p>
+              }
+              @if (edad.errors?.['min']) {
+                <p class="error">La edad mínima es 15</p>
+              }
+            }
+
+            <label><b>Sexo</b></label><br>
+            <input
+            type="radio"
+            id="hombre"
+            name="sexo"
+            value="Hombre"
+            [(ngModel)]="perfil.sexo"
+            class="form-check-input"
+            #sexo="ngModel"
+            required
+            />
+            <label for="hombre" class="form-check-label">Hombre</label>
+            <input
+            type="radio"
+            id="mujer"
+            name="sexo"
+            value="Mujer"
+            [(ngModel)]="perfil.sexo"
+            class="form-check-input"
+            required
+            />
+            <label for="mujer" class="form-check-label">Mujer</label>
+        </div>
+
+        <div class="seccion2">
+            <label for="peso"><b>Peso</b></label>
+            <input
+            type="number"
+            #peso="ngModel"
+            [(ngModel)] = "perfil.peso"
+            placeholder="Peso"
+            name="peso"
+            class="form-control"
+            required/>
+
+        
+            @if (email.invalid && (email.dirty || email.touched)) {
+              @if (email.errors?.['required']) {
+                <p class="error">Introduce un correo electrónico válido</p>
+              }
+              @if (email.errors && email.errors?.['pattern']) {
+                <p class="error">Introduce un correo electrónico con formato correcto (ej. arroba y .com)</p>
+              }
+            }
+
+            <label for="altura"><b>Altura</b></label>
+            <input
+            type="number"
+            #altura="ngModel"
+            [(ngModel)] = "perfil.altura"
+            placeholder="Altura"
+            name="altura"
+            class="form-control"
+            required/>
+
+        
+            @if (email.invalid && (email.dirty || email.touched)) {
+              @if (email.errors?.['required']) {
+                <p class="error">Introduce un correo electrónico válido</p>
+              }
+              @if (email.errors && email.errors?.['pattern']) {
+                <p class="error">Introduce un correo electrónico con formato correcto (ej. arroba y .com)</p>
+              }
+            }
+        </div>
+        
+    </form>
+</div>
