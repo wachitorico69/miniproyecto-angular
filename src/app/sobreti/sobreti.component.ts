@@ -52,7 +52,10 @@
     };
 
     submit(form: NgForm) {
-      localStorage.setItem(this.perfil.email, JSON.stringify(this.perfil));
+      const perfilesGuardados = JSON.parse(localStorage.getItem('perfiles') || '[]');
+      perfilesGuardados.push(this.perfil);
+
+      localStorage.setItem('perfiles', JSON.stringify(perfilesGuardados));
 
       Swal.fire({
         title: 'Buen trabajo!',
@@ -116,7 +119,10 @@
         return;
       }
 
-      localStorage.setItem(this.claseForm.value.telefono, JSON.stringify(this.claseForm.value));
+      const clasesGuardadas = JSON.parse(localStorage.getItem('clases') || '[]');
+      clasesGuardadas.push(this.claseForm.value);
+
+      localStorage.setItem('clases', JSON.stringify(clasesGuardadas));
 
       Swal.fire({
         title: 'Clase programada!',
