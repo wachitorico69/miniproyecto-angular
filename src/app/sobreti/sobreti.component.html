@@ -1,13 +1,97 @@
 <h2>¿Estás interesado en alguna de nuestras clases?</h2>
 <h5>Si alguna de las clases que tenemos disponibles es de tu agrado, no dudes en aprovechar de ellas y 
     empieza ya mismo con el trabajo duro!</h5>
-FORMULARIO
+
+<div class="container">
+  <form (ngSubmit)="onSubmit()" [formGroup]="claseForm">
+    <label>Nombre</label>
+    <input type="text" formControlName="nombre" class="form-control" placeholder="Nombre">
+      <div class="error-container">
+         @if (claseForm.get('nombre')?.touched && claseForm.get('nombre')?.invalid) {
+            @if (claseForm.get('nombre')?.errors?.['required']) {
+              <p class="error">Introduce un nombre</p>
+            }
+            @if (claseForm.get('nombre')?.errors?.['minlength']) {
+              <p class="error">Introduce un nombre con mínimo con 5 caracteres</p>
+            }
+          }
+      </div>
+
+    <label>Teléfono</label>
+    <input type="text" formControlName="telefono" class="form-control" placeholder="Teléfono">
+      <div class="error-container">
+         @if (claseForm.get('telefono')?.touched && claseForm.get('telefono')?.invalid) {
+            @if (claseForm.get('telefono')?.errors?.['required']) {
+              <p class="error">Introduce un telefono</p>
+            }
+            @if (claseForm.get('telefono')?.errors?.['minlength']) {
+              <p class="error">Número mínimo de 10 dígitos</p>
+            }
+          }
+      </div>
+
+    <label>Clase</label>
+    <select class="form-select" formControlName="clase">
+      <option value="" disabled selected>Selecciona una clase</option>
+      @for (c of clases; track c) {
+        <option [value]="c.id">{{c.nombre}}</option>
+      }
+    </select>
+      <div class="error-container">
+         @if (claseForm.get('clase')?.touched && claseForm.get('clase')?.invalid) {
+            @if (claseForm.get('clase')?.errors?.['required']) {
+              <p class="error">Selecciona una clase</p>
+            }
+          }
+      </div>
+
+    <label>Horario</label>
+    <select class="form-select" formControlName="horario">
+      <option value="" disabled selected>Selecciona un horario</option>
+      <option value="7">7:00 am</option>
+      <option value="9">9:00 am</option>
+      <option value="1">1:00 pm</option>
+      <option value="4">4:00 pm</option>
+      <option value="8">8:00 pm</option>
+    </select>
+      <div class="error-container">
+         @if (claseForm.get('horario')?.touched && claseForm.get('horario')?.invalid) {
+            @if (claseForm.get('horario')?.errors?.['required']) {
+              <p class="error">Selecciona un horario</p>
+            }
+          }
+      </div>
+    
+    <label for="start">Fecha</label>
+    <input class="form-select" formControlName="fecha"
+    type="date"
+    />
+      <div class="error-container">
+        @if (claseForm.get('fecha')?.touched && claseForm.get('fecha')?.invalid) {
+          @if (claseForm.get('fecha')?.errors?.['required']) {
+            <p class="error">Selecciona una fecha</p>
+          }
+          @if (claseForm.get('fecha')?.errors?.['fechaInvalida']) {
+            <p class="error">No puedes elegir una fecha anterior a hoy</p>
+          }
+          @if (claseForm.get('fecha')?.errors?.['añoInvalido']) {
+            <p class="error">Solo puedes elegir una fecha del año actual</p>
+          }
+        }
+      </div>
+
+    <div class="raw">
+      <button class="btn btn-dark" [disabled]="claseForm.invalid">Registrar Clase</button>
+    </div>
+  </form>
+</div>
+
 <br><br><br>
 
 <h2>Nos gustaría saber un poco sobre ti...</h2>
 <h5>Puedes llenar el siguiente formulario si quieres recibir un email de un perfil personalizado hecho por algunos de nuestros coachs expertos!</h5>
 
-<div class="container">
+<div class="container2">
     <form (ngSubmit)="submit(forma)" #forma="ngForm">
         <label for="nombre"><b>Nombre</b></label>
         <input

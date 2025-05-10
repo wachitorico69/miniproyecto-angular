@@ -9,6 +9,14 @@ h5 {
 .container {
     margin:auto;
     width: 30%;
+    height: 530px;
+    padding: 25px;
+    box-shadow: 7px 7px black;
+    border: 2px solid black;
+}
+.container2 {
+    margin:auto;
+    width: 30%;
     height: 600px;
     padding: 25px;
     box-shadow: 7px 7px black;
@@ -27,10 +35,6 @@ h5 {
 
 #mujer {
     margin-left: 10px;
-}
-
-input[type='radio'] {
-    accent-color: #ff0000;
 }
 
 .raw {
