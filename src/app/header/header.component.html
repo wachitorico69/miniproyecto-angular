@@ -3,5 +3,18 @@
       <img src="gorila2.png" alt="Logo" class="logo me-2" />
       <p class="m-0">Gorilla GYM</p>
     </div>
-    <button class="btn">Login</button>
+    @if(loginError){
+      <form [formGroup]="loginForm" (ngSubmit)="login()">
+        <input formControlName="username" placeholder="Usuario">
+        <input formControlName="password" placeholder="password" type="password">
+        <button type="submit">Ingresar</button>
+      </form>
+    }@else{
+      <div style= "display: flex; align-items: center; gap: 1rem;">
+        @if(userlog){
+          <span>{{userlog}}</span>
+        }
+        <button (click)="mostrarLog()" class="btn">{{userlog ? 'Logout' : 'Login'}}</button>
+      </div>
+    }
 </header>
