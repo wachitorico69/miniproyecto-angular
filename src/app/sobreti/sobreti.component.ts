@@ -89,9 +89,19 @@
         nombre: ["", [Validators.required, Validators.minLength(5)]],
         telefono: ["", [Validators.required, Validators.minLength(10)]],
         clase: ["", [Validators.required]],
-        horario: ["", [Validators.required]],
+        horario: [{ value: "", disabled: true }, [Validators.required]],
         fecha: ["", [Validators.required, validarFecha()]]
       })
+
+      this.claseForm.get('clase')?.valueChanges.subscribe(value => {
+        const horarioControl = this.claseForm.get('horario');
+        if (value) {
+          horarioControl?.enable();
+        } else {
+          horarioControl?.disable();
+          horarioControl?.reset();
+        }
+      });
     }
 
     get form() {
@@ -118,7 +128,14 @@
         iconColor: 'black'
       })
 
-      this.claseForm.reset();
+      this.claseForm.reset({
+        nombre: '',
+        telefono: '',
+        clase: '',
+        horario: '',  // Este será deshabilitado, pero lo reseteamos visualmente
+        fecha: ''
+      });
+      this.claseForm.get('horario')?.disable();
     }
   }
 

@@ -4,7 +4,7 @@
 
 <div class="container">
   <form (ngSubmit)="onSubmit()" [formGroup]="claseForm">
-    <label>Nombre</label>
+    <label><b>Nombre</b></label>
     <input type="text" formControlName="nombre" class="form-control" placeholder="Nombre">
       <div class="error-container">
          @if (claseForm.get('nombre')?.touched && claseForm.get('nombre')?.invalid) {
@@ -17,7 +17,7 @@
           }
       </div>
 
-    <label>Teléfono</label>
+    <label><b>Teléfono</b></label>
     <input type="text" formControlName="telefono" class="form-control" placeholder="Teléfono">
       <div class="error-container">
          @if (claseForm.get('telefono')?.touched && claseForm.get('telefono')?.invalid) {
@@ -30,9 +30,9 @@
           }
       </div>
 
-    <label>Clase</label>
+    <label><b>Clase</b></label>
     <select class="form-select" formControlName="clase">
-      <option value="" disabled selected>Selecciona una clase</option>
+      <option value="" disabled>Selecciona una clase</option>
       @for (c of clases; track c) {
         <option [value]="c.id">{{c.nombre}}</option>
       }
@@ -45,9 +45,9 @@
           }
       </div>
 
-    <label>Horario</label>
+    <label><b>Horario</b></label>
     <select class="form-select" formControlName="horario">
-      <option value="" disabled selected>Selecciona un horario</option>
+      <option value="" disabled>Selecciona un horario</option>
       <option value="7">7:00 am</option>
       <option value="9">9:00 am</option>
       <option value="1">1:00 pm</option>
@@ -55,6 +55,9 @@
       <option value="8">8:00 pm</option>
     </select>
       <div class="error-container">
+        @if (claseForm.get('horario')?.disabled) {
+          <p style="color: gray; font-size: 12px;">Selecciona una clase para ver los horarios</p>
+        }
          @if (claseForm.get('horario')?.touched && claseForm.get('horario')?.invalid) {
             @if (claseForm.get('horario')?.errors?.['required']) {
               <p class="error">Selecciona un horario</p>
@@ -62,7 +65,7 @@
           }
       </div>
     
-    <label for="start">Fecha</label>
+    <label for="start"><b>Fecha</b></label>
     <input class="form-select" formControlName="fecha"
     type="date"
     />
@@ -132,7 +135,7 @@
               @if (email.errors?.['required']) {
                 <p class="error">Introduce un correo electrónico</p>
               }
-              @if (email.errors && email.errors?.['pattern']) {
+              @if (email.errors && email.errors['pattern']) {
                 <p class="error">Introduce un correo electrónico con formato correcto (ej. arroba y .com)</p>
               }
             }
@@ -209,7 +212,7 @@
               @if (peso.errors?.['required']) {
                 <p class="error">Introduce un peso</p>
               }
-              @if (peso.errors && peso.errors?.['min']) {
+              @if (peso.errors && peso.errors['min']) {
                 <p class="error">El peso mínimo es de 30 kg</p>
               }
             }
@@ -231,7 +234,7 @@
               @if (altura.errors?.['required']) {
                 <p class="error">Introduce una altura</p>
               }
-              @if (altura.errors && altura.errors?.['min']) {
+              @if (altura.errors && altura.errors['min']) {
                 <p class="error">La altura mínima es de 100 cm</p>
               }
             }
