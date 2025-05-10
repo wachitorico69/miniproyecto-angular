@@ -8,7 +8,7 @@ FORMULARIO
 <h5>Puedes llenar el siguiente formulario si quieres recibir un email de un perfil personalizado hecho por algunos de nuestros coachs expertos!</h5>
 
 <div class="container">
-    <form (ngSubmit)="submit()" #form="ngForm">
+    <form (ngSubmit)="submit(forma)" #forma="ngForm">
         <label for="nombre"><b>Nombre</b></label>
         <input
             type="text"
@@ -20,7 +20,7 @@ FORMULARIO
             class="form-control"
             required/>
 
-        
+          <div class="error-container">
             @if (nombre.invalid && (nombre.dirty || nombre.touched)) {
               @if (nombre.errors?.['minlength']) {
                 <p class="error">Introduce un nombre con mínimo 5 caracteres</p>
@@ -29,6 +29,7 @@ FORMULARIO
                 <p class="error">Introduce un nombre</p>
               }
             }
+          </div>
         
 
         <label for="email"><b>Correo electrónico</b></label>
@@ -42,7 +43,7 @@ FORMULARIO
             pattern="^[a-zA-Z0-9._-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$"
             required/>
 
-        
+          <div class="error-container">
             @if (email.invalid && (email.dirty || email.touched)) {
               @if (email.errors?.['required']) {
                 <p class="error">Introduce un correo electrónico</p>
@@ -51,8 +52,9 @@ FORMULARIO
                 <p class="error">Introduce un correo electrónico con formato correcto (ej. arroba y .com)</p>
               }
             }
+          </div>
 
-        <div class="seccion1">
+        
             <label for="edad"><b>Edad</b></label>
             <input
             type="number"
@@ -64,7 +66,7 @@ FORMULARIO
             class="form-control"
             required/>
 
-        
+          <div class="error-container">
             @if (edad.invalid && (edad.dirty || edad.touched)) {
               @if (edad.errors?.['required']) {
                 <p class="error">Introduce un edad</p>
@@ -73,6 +75,7 @@ FORMULARIO
                 <p class="error">La edad mínima es 15</p>
               }
             }
+          </div>
 
             <label><b>Sexo</b></label><br>
             <input
@@ -96,9 +99,16 @@ FORMULARIO
             required
             />
             <label for="mujer" class="form-check-label">Mujer</label>
-        </div>
 
-        <div class="seccion2">
+          <div class="error-container">
+            @if (sexo.invalid && (sexo.dirty || sexo.touched)) {
+              @if (sexo.errors?.['required']) {
+                <p class="error">Selecciona un sexo</p>
+              }
+            }
+          </div>
+        
+
             <label for="peso"><b>Peso</b></label>
             <input
             type="number"
@@ -107,38 +117,44 @@ FORMULARIO
             placeholder="Peso"
             name="peso"
             class="form-control"
+            min="30"
             required/>
 
-        
-            @if (email.invalid && (email.dirty || email.touched)) {
-              @if (email.errors?.['required']) {
-                <p class="error">Introduce un correo electrónico válido</p>
+          <div class="error-container">
+            @if (peso.invalid && (peso.dirty || peso.touched)) {
+              @if (peso.errors?.['required']) {
+                <p class="error">Introduce un peso</p>
               }
-              @if (email.errors && email.errors?.['pattern']) {
-                <p class="error">Introduce un correo electrónico con formato correcto (ej. arroba y .com)</p>
+              @if (peso.errors && peso.errors?.['min']) {
+                <p class="error">El peso mínimo es de 30 kg</p>
               }
             }
+          </div>
 
             <label for="altura"><b>Altura</b></label>
             <input
             type="number"
             #altura="ngModel"
             [(ngModel)] = "perfil.altura"
-            placeholder="Altura"
+            placeholder="Altura (cm)"
             name="altura"
             class="form-control"
+            min="100"
             required/>
 
-        
-            @if (email.invalid && (email.dirty || email.touched)) {
-              @if (email.errors?.['required']) {
-                <p class="error">Introduce un correo electrónico válido</p>
+          <div class="error-container">
+            @if (altura.invalid && (altura.dirty || altura.touched)) {
+              @if (altura.errors?.['required']) {
+                <p class="error">Introduce una altura</p>
               }
-              @if (email.errors && email.errors?.['pattern']) {
-                <p class="error">Introduce un correo electrónico con formato correcto (ej. arroba y .com)</p>
+              @if (altura.errors && altura.errors?.['min']) {
+                <p class="error">La altura mínima es de 100 cm</p>
               }
             }
-        </div>
+          </div>
+          <div class="raw">
+            <button type="submit" [disabled]="!forma.valid" class="btn btn-dark">Enviar</button>
+          </div> 
         
     </form>
 </div>
