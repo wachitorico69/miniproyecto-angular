@@ -2,10 +2,11 @@ import { Component } from '@angular/core';
 import { ClasesService } from '../servicios/clases.service';
 import { NgClass} from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-clases',
-  imports: [NgClass, FormsModule],
+  imports: [NgClass, FormsModule, RouterModule],
   templateUrl: './clases.component.html',
   styleUrl: './clases.component.css'
 })
