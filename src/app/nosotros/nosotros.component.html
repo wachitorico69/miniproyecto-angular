@@ -1,6 +1,11 @@
 <div class="cuerpo">
     <h2 style="font-weight: bold;">Sobre Nosotros</h2>
-    <img [src]="image" alt="imagen de persona" class="img">
+    <div class="imagenes">
+        <img [src]="image" alt="imagen de persona" class="img">
+        @if(imagen){
+            <img [src]="imagen" alt="Imagen recibida" class="img">
+        }
+    </div>
     <p class="descripcion">Nuestro gimnasio es un espacio moderno y completo diseñado para ayudarte a alcanzar 
         tus metas de salud y bienestar. Contamos con una amplia variedad de equipos de última generación para 
         entrenamiento cardiovascular, fuerza y musculación, así como áreas dedicadas a clases grupales como yoga, 

@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import {MatIconModule} from '@angular/material/icon';
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import {MatBadgeModule} from '@angular/material/badge';
 
 @Component({
@@ -11,5 +11,10 @@ import {MatBadgeModule} from '@angular/material/badge';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class NavbarComponent {
+  constructor(private router: Router) {}
 
+  irANosotrosConImagen2() {
+    const imagen2 = 'assets/img2.jpg';
+    this.router.navigate(['/nosotros', encodeURIComponent(imagen2)]);
+  }
 }

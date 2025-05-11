@@ -15,7 +15,7 @@
 }
 .img{
     height: 400px;
-    width: auto;
+    width: 600px;
     box-shadow: 7px 7px black;
     margin: auto;
 }
@@ -35,4 +35,10 @@
     justify-content: center;
     gap: 10px;
     overflow: hidden;
+}
+
+.imagenes{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
 }

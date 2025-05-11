@@ -11,5 +11,6 @@ export const routes: Routes = [
     { path: 'nosotros', component: NosotrosComponent },
     { path: 'clases', component: ClasesComponent },
     { path: 'sobreti', component: SobretiComponent },
-    { path: 'registros', component: RegistrosComponent }
+    { path: 'registros', component: RegistrosComponent },
+    { path: 'nosotros/:image', component: NosotrosComponent }
 ];
