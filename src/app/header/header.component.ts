@@ -1,10 +1,12 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { AdminlogService } from '../shared/adminlog.service';
+import { Router, RouterModule } from '@angular/router';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-header',
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, RouterModule],
   templateUrl: './header.component.html',
   styleUrl: './header.component.css'
 })
@@ -13,7 +15,7 @@ export class HeaderComponent {
   loginError: boolean = false;
   userlog: string | null = null;
 
-  constructor(private fb: FormBuilder, private adminService: AdminlogService) {
+  constructor(private fb: FormBuilder, private adminService: AdminlogService, private router: Router) {
     this.loginForm = this.fb.group({
       username: [''],
       password: ['']
@@ -35,6 +37,14 @@ export class HeaderComponent {
     this.userlog=null;
     this.loginForm.reset();
     this.loginError = false;
+
+    Swal.fire({
+      icon: 'info',
+      title: 'Sesion cerrada',
+      timer: 1500,
+      showConfirmButton:false
+    });
+    this.router.navigate(['/home'])
   }
 
   mostrarLog(){

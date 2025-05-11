@@ -3,7 +3,7 @@
       <img src="gorila2.png" alt="Logo" class="logo me-2" />
       <p class="m-0">Gorilla GYM</p>
     </div>
-    @if(loginError){
+    @if(loginError==true){
       <form [formGroup]="loginForm" (ngSubmit)="login()">
         <input formControlName="username" placeholder="Usuario">
         <input formControlName="password" placeholder="password" type="password">
@@ -13,6 +13,7 @@
       <div style= "display: flex; align-items: center; gap: 1rem;">
         @if(userlog){
           <span>{{userlog}}</span>
+          <a [routerLink]="['/registros']">Ver Registros</a>
         }
         <button (click)="mostrarLog()" class="btn">{{userlog ? 'Logout' : 'Login'}}</button>
       </div>
