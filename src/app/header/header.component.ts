@@ -27,10 +27,22 @@ export class HeaderComponent {
     const user = this.adminService.obtenerU(username, password);
     if(user){
       this.userlog = user.nombre;
-      alert('login exitoso');
+      Swal.fire({
+          title: 'Bienvenido!',
+          icon: 'success',
+          confirmButtonText: 'Aceptar',
+          confirmButtonColor: 'black',
+          color: 'black'
+            })
       this.loginError=false;
     }else{
-      alert('Datos invalidos');
+        Swal.fire({
+            title: 'Datos incorrectos',
+            icon: 'error',
+            confirmButtonText: 'Aceptar',
+            confirmButtonColor: 'black',
+            color: 'black'
+            })
     }
   }
   logout(){
@@ -40,9 +52,10 @@ export class HeaderComponent {
 
     Swal.fire({
       icon: 'info',
-      title: 'Sesion cerrada',
+      title: 'Sesión cerrada',
       timer: 1500,
-      showConfirmButton:false
+      showConfirmButton:false,
+      color: 'black'
     });
     this.router.navigate(['/home'])
   }

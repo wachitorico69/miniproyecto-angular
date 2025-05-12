@@ -5,15 +5,15 @@
     </div>
     @if(loginError==true){
       <form [formGroup]="loginForm" (ngSubmit)="login()">
-        <input formControlName="username" placeholder="Usuario">
-        <input formControlName="password" placeholder="password" type="password">
-        <button type="submit">Ingresar</button>
+        <input formControlName="username" placeholder="Usuario" class="form-control">
+        <input formControlName="password" placeholder="password" class="form-control" type="password">
+        <button type="submit" class="btn">Ingresar</button>
       </form>
     }@else{
       <div style= "display: flex; align-items: center; gap: 1rem;">
         @if(userlog){
           <span>{{userlog}}</span>
-          <a [routerLink]="['/registros']">Ver Registros</a>
+          <a [routerLink]="['/registros']" class="btn">Ver Registros</a>
         }
         <button (click)="mostrarLog()" class="btn">{{userlog ? 'Logout' : 'Login'}}</button>
       </div>
